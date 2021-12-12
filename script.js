@@ -68,9 +68,11 @@ function calculateMonthlyCosts(employees) {
 }// end calculateMonthlyCosts
 
 function printEmployees() {
+    $('#employee-info').empty();
     for(let i=0; i<employeeArray.length; i++) {
+        $('#employee-info').append(`<tr id="${employeeArray[i].id}"></tr>`);
         for(let j in employeeArray[i]) {
-            $('#employee-info').append(`<td>${employeeArray[i][j]}</td>`);
+            $('#employee-info').append(`<td">${employeeArray[i][j]}</td>`);
         }
     }
 }
