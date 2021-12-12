@@ -2,12 +2,6 @@ console.log('js');
 
 $(document).ready(handleReady);
 
-function handleReady() {
-    console.log('jQuery is ready');
-    $('#employee-submit').on('click', function(){console.log('click')});
-    $('#employee-submit').on('click', getEmployeeInfo);
-    }// end handleReady
-
 let employeeArray = [];
 
 function printEmployees() {
@@ -19,13 +13,24 @@ function printEmployees() {
         }
         $('#employee-info').append(`<button class="delete-button">DELETE</button>`);
     }
+    // where to put this click handler?
+    //$(document).on('click', 'delete-button', function() {
+    //    $('this').closest('tr).remove(); 
+    //});
 }// end printEmployees
 
-//function deleteEmployee() {
-    // where to put this click handler?
-    $('.delete-button').on('click', console.log('delete-click'));
-    $('.delete-button').on('click', $(this).closest('tr').data('id'));
-//}
+function handleReady() {
+    console.log('jQuery is ready');
+    $('#employee-submit').on('click', function(){console.log('click')});
+    $('#employee-submit').on('click', getEmployeeInfo);
+    $('.delete-button').on('click', deleteEmployee());
+    }// end handleReady
+
+function deleteEmployee(event) {
+    console.log('delete-click'); 
+    //event.preventDefault();
+    $(this).closest('tr').remove();
+}
 
 function getEmployeeInfo() {
     // verify input data
