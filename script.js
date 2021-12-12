@@ -54,3 +54,15 @@ function getEmployeeInfo() {
     
 }// end getEmployeeInfo
 
+function calculateMonthlyCosts(employees) {
+    let employeeCosts = 0;
+    let monthlyCosts = 0;
+    for(i=0; i<employees.length; i++) {
+        employeeCosts += employees[i].annualSalary;
+    }
+    console.log(employeeCosts);
+    monthlyCosts = employeeCosts / 12;
+    console.log(monthlyCosts);
+    return monthlyCosts;
+}
+
