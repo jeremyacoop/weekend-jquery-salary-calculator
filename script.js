@@ -12,17 +12,17 @@ let employeeArray = [];
 
 function getEmployeeInfo() {
     // verify input data
-    if($('#first-name').val() === ''{
+    if($('#first-name').val() === '') {
         alert('First name is required');
-    }else if($('#last-name').val() === ''{
+    }else if($('#last-name').val() === '') {
         alert('Last name is required');
-    }else if($('#id-number').val() === ''{
+    }else if($('#id-number').val() === '') {
         alert('ID number is required');
-    }else if($('#job-title').val() === ''{
+    }else if($('#job-title').val() === '') {
         alert('Job title is required');
-    }else if($('#annual-salary').val() === ''{
+    }else if($('#annual-salary').val() === '') {
         alert('Annual salary is required');
-    }else if($('#annual-salary').val() === NaN{
+    }else if($('#annual-salary').val() === NaN) {
         alert('Salary must be a number');
     }// end verify
 
@@ -40,6 +40,17 @@ function getEmployeeInfo() {
     $('#id-number').val("");
     $('#job-title').val("");
     $('#annual-salary').val("");
+
+    const employeeObject = {
+        nameOne: firstName,
+        nameTwo: lastName,
+        id: idNumber,
+        job: jobTitle,
+        salary: Number(annualSalary)
+    }
+    employeeArray.push(employeeObject);
+    console.log(employeeObject);
+    console.log(employeeArray);
     
 }// end getEmployeeInfo
 
