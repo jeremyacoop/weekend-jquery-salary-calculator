@@ -64,5 +64,5 @@ function calculateMonthlyCosts(employees) {
     monthlyCosts = employeeCosts / 12;
     console.log(monthlyCosts);
     return monthlyCosts;
-}
+}// end calculateMonthlyCosts
 
