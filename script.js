@@ -51,7 +51,8 @@ function getEmployeeInfo() {
     employeeArray.push(employeeObject);
     console.log(employeeObject);
     console.log(employeeArray);
-    
+
+    printEmployees();
 }// end getEmployeeInfo
 
 function calculateMonthlyCosts(employees) {
@@ -66,3 +67,10 @@ function calculateMonthlyCosts(employees) {
     return monthlyCosts;
 }// end calculateMonthlyCosts
 
+function printEmployees() {
+    for(let i=0; i<employeeArray.length; i++) {
+        for(let j in employeeArray[i]) {
+            $('#employee-info').append(`<td>${employeeArray[i][j]}</td>`);
+        }
+    }
+}
