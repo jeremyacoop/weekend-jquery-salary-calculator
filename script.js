@@ -10,20 +10,43 @@ function handleReady() {
 
 let employeeArray = [];
 
+function printEmployees() {
+    $('#employee-info').empty();
+    for(let i=0; i<employeeArray.length; i++) {
+        $('#employee-info').append(`<tr id="${employeeArray[i].id}"></tr>`);
+        for(let j in employeeArray[i]) {
+            $('#employee-info').append(`<td">${employeeArray[i][j]}</td>`);
+        }
+        $('#employee-info').append(`<button class="delete-button">DELETE</button>`);
+    }
+}// end printEmployees
+
+//function deleteEmployee() {
+    // where to put this click handler?
+    $('.delete-button').on('click', console.log('delete-click'));
+    $('.delete-button').on('click', $(this).closest('tr').data('id'));
+//}
+
 function getEmployeeInfo() {
     // verify input data
     if($('#first-name').val() === '') {
         alert('First name is required');
+        return;
     }else if($('#last-name').val() === '') {
         alert('Last name is required');
+        return;
     }else if($('#id-number').val() === '') {
         alert('ID number is required');
+        return;
     }else if($('#job-title').val() === '') {
         alert('Job title is required');
+        return;
     }else if($('#annual-salary').val() === '') {
         alert('Annual salary is required');
+        return;
     }else if($('#annual-salary').val() === NaN) {
         alert('Salary must be a number');
+        return;
     }// end verify
 
     // collect and store inputs
@@ -66,13 +89,3 @@ function calculateMonthlyCosts(employees) {
     console.log(monthlyCosts);
     return monthlyCosts;
 }// end calculateMonthlyCosts
-
-function printEmployees() {
-    $('#employee-info').empty();
-    for(let i=0; i<employeeArray.length; i++) {
-        $('#employee-info').append(`<tr id="${employeeArray[i].id}"></tr>`);
-        for(let j in employeeArray[i]) {
-            $('#employee-info').append(`<td">${employeeArray[i][j]}</td>`);
-        }
-    }
-}
