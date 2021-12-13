@@ -2,12 +2,12 @@ console.log('js');
 
 $(document).ready(handleReady);
 
-let employeeArray = [];
+const employeeArray = [];
 
 function printEmployees() {
     $('#employee-info').empty();
     for(let i=0; i<employeeArray.length; i++) {
-        $('#employee-info').append(`<tr id="${employeeArray[i].id}"></tr>`);
+        $('#employee-info').append(`<tr></tr>`);
         for(let j in employeeArray[i]) {
             $('#employee-info').append(`<td">${employeeArray[i][j]}</td>`);
         }
@@ -63,11 +63,7 @@ function getEmployeeInfo() {
     console.log(annualSalary);
 
     // clear inputs
-    $('#first-name').val("");
-    $('#last-name').val("");
-    $('#id-number').val("");
-    $('#job-title').val("");
-    $('#annual-salary').val("");
+    $('.emp-input').val("");
 
     const employeeObject = {
         nameOne: firstName,
@@ -94,3 +90,20 @@ function calculateMonthlyCosts(employees) {
     console.log(monthlyCosts);
     return monthlyCosts;
 }// end calculateMonthlyCosts
+
+function totalSalaries(array) {
+    let total = 0;
+    for (employee of array) {
+        total += array[employee.salary];
+    }
+    console.log(total);
+    return total;
+}
+
+function printTotal() {
+    let totalCost = totalSalaries(employeeArray);
+    if(totalCost > 20000) {
+
+    }
+    $('#total-costs').append(totalCost);
+}
