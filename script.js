@@ -7,12 +7,16 @@ const employeeArray = [];
 function printEmployees() {
     $('#employee-info').empty();
     for(let i=0; i<employeeArray.length; i++) {
-        $('#employee-info').append(`<tr></tr>`);
-        for(let j in employeeArray[i]) {
-            $('#employee-info').append(`<td">${employeeArray[i][j]}</td>`);
-        }
+        $('#employee-info').append(`<tr class="emp-row">
+            <td>${employeeArray[i].nameOne} </td>
+            <td>${employeeArray[i].nameTwo} </td>
+            <td>${employeeArray[i].id} </td>
+            <td>${employeeArray[i].job} </td>
+            <td>${employeeArray[i].salary} </td>
+        </tr>`);
         $('#employee-info').append(`<button class="delete-button">DELETE</button>`);
     }
+    printTotal();
     // where to put this click handler?
     //$(document).on('click', 'delete-button', function() {
     //    $('this').closest('tr).remove(); 
@@ -23,10 +27,11 @@ function handleReady() {
     console.log('jQuery is ready');
     $('#employee-submit').on('click', function(){console.log('click')});
     $('#employee-submit').on('click', getEmployeeInfo);
-    $('.delete-button').on('click', deleteEmployee());
+    $(document).on('click', '.delete-button', deleteEmployee);
     }// end handleReady
 
 function deleteEmployee(event) {
+    event.preventDefault();
     console.log('delete-click'); 
     //event.preventDefault();
     $(this).closest('tr').remove();
@@ -94,7 +99,7 @@ function calculateMonthlyCosts(employees) {
 function totalSalaries(array) {
     let total = 0;
     for (employee of array) {
-        total += array[employee.salary];
+        total += parseInt(array[employee.salary]);
     }
     console.log(total);
     return total;
@@ -103,7 +108,9 @@ function totalSalaries(array) {
 function printTotal() {
     let totalCost = totalSalaries(employeeArray);
     if(totalCost > 20000) {
-
-    }
+    $('#total-costs').append(`<span style="background-color: red"><strong>$${totalCost}<br></strong></span>`);
+    } else {
     $('#total-costs').append(totalCost);
+    }
+    return;
 }

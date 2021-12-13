@@ -2,7 +2,7 @@ table {
     border: 1px solid grey;
 }
 
-th, td {
-    column-width: 200px;
+th td {
+    width: 400px;
     border: 1px solid grey;
 }
