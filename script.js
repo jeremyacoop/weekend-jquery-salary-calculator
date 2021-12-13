@@ -13,8 +13,8 @@ function printEmployees() {
             <td>${employeeArray[i].id} </td>
             <td>${employeeArray[i].job} </td>
             <td>${employeeArray[i].salary} </td>
+            <td><button class="delete-button">DELETE</button></td>
         </tr>`);
-        $('#employee-info').append(`<button class="delete-button">DELETE</button>`);
     }
     printTotal();
     // where to put this click handler?
